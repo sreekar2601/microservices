@@ -1,0 +1,43 @@
+
+spring:
+  application:
+    name: "gatewayserver"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+  cloud:
+    gateway:
+      httpClient:
+        connect-timeout: 1000
+        response-timeout: 2s
+      discovery:
+        locator:
+          enabled: false
+          lowerCaseServiceId: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "gatewayserver"
+    description: "eazybanks gateway application"
+    version: "1.0."
+
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 2
+      failureRateThreshold: 50
+      waitDurationInOpenState: 10000
+

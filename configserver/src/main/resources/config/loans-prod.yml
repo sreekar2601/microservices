@@ -1,0 +1,11 @@
+build:
+  version: "1.0"
+
+loans:
+  message: "Welcome to EazyBank a related loans Prod APIs "
+  contactDetails:
+    name: "Gautham - QA"
+    email: "gautham@eazybank.com"
+  onCallSupport:
+    - (555) 555-1234
+    - (555) 523-1345
